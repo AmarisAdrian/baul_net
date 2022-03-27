@@ -1,4 +1,5 @@
 using BusinessLayer;
+using PresentationLayer;
 namespace baul
 {
     public partial class FrmCrearCliente : Form
@@ -72,7 +73,14 @@ namespace baul
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
+            FrmListaCliente frm = new FrmListaCliente();
+            frm.Show();
             this.Close();
+        }
+
+        private void FrmCrearCliente_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
