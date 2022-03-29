@@ -26,5 +26,16 @@ namespace BusinessLayer
             CargarCombo talla = new CargarCombo();
             talla.Load(CmbTalla, "SELECT ID, NOMBRE FROM TALLA where id not in (select id_talla as talla from producto where referencia = "+Referencia+");", "ID", "NOMBRE");
         }
+
+        public void CargarTipoUsuario(ComboBox CmbTipoUsuario)
+        {
+            CargarCombo talla = new CargarCombo();
+            talla.Load(CmbTipoUsuario, "SELECT ID, NOMBRE FROM TIPO_USUARIO", "ID", "NOMBRE");
+        }
+        public void CargarEstadoUsuario(ComboBox CmbEstadoUsuario)
+        {
+            CargarCombo talla = new CargarCombo();
+            talla.Load(CmbEstadoUsuario, "SELECT ID, NOMBRE FROM ESTADO_USUARIO", "ID", "NOMBRE");
+        }
     }
 }

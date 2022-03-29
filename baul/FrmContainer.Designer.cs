@@ -35,6 +35,9 @@
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +45,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.productosToolStripMenuItem,
-            this.clientesToolStripMenuItem});
+            this.clientesToolStripMenuItem,
+            this.usuariosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -63,7 +67,7 @@
             this.listadoProductosToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.pencil_table;
             this.listadoProductosToolStripMenuItem.Name = "listadoProductosToolStripMenuItem";
             this.listadoProductosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.listadoProductosToolStripMenuItem.Text = "&Listado productos";
+            this.listadoProductosToolStripMenuItem.Text = "&Lista productos";
             this.listadoProductosToolStripMenuItem.Click += new System.EventHandler(this.listadoProductosToolStripMenuItem_Click);
             // 
             // crearProductosToolStripMenuItem
@@ -88,7 +92,7 @@
             this.listaClientesToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.client_list;
             this.listaClientesToolStripMenuItem.Name = "listaClientesToolStripMenuItem";
             this.listaClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.listaClientesToolStripMenuItem.Text = "&Lista clientes";
+            this.listaClientesToolStripMenuItem.Text = "&Lista Clientes";
             this.listaClientesToolStripMenuItem.Click += new System.EventHandler(this.listaClientesToolStripMenuItem_Click);
             // 
             // crearClientesToolStripMenuItem
@@ -99,10 +103,36 @@
             this.crearClientesToolStripMenuItem.Text = "&Crear Clientes";
             this.crearClientesToolStripMenuItem.Click += new System.EventHandler(this.crearClientesToolStripMenuItem_Click);
             // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listaUsuarioToolStripMenuItem,
+            this.crearUsuarioToolStripMenuItem});
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            // 
+            // listaUsuarioToolStripMenuItem
+            // 
+            this.listaUsuarioToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.user_list;
+            this.listaUsuarioToolStripMenuItem.Name = "listaUsuarioToolStripMenuItem";
+            this.listaUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listaUsuarioToolStripMenuItem.Text = "&Lista Usuarios";
+            this.listaUsuarioToolStripMenuItem.Click += new System.EventHandler(this.listaUsuarioToolStripMenuItem_Click);
+            // 
+            // crearUsuarioToolStripMenuItem
+            // 
+            this.crearUsuarioToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.add_user_client;
+            this.crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
+            this.crearUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearUsuarioToolStripMenuItem.Text = "&Crear Usuarios";
+            this.crearUsuarioToolStripMenuItem.Click += new System.EventHandler(this.crearUsuarioToolStripMenuItem_Click);
+            // 
             // FrmContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
@@ -110,6 +140,7 @@
             this.Name = "FrmContainer";
             this.Text = "Container";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmContainer_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -126,5 +157,8 @@
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem listaClientesToolStripMenuItem;
         private ToolStripMenuItem crearClientesToolStripMenuItem;
+        private ToolStripMenuItem usuariosToolStripMenuItem;
+        private ToolStripMenuItem listaUsuarioToolStripMenuItem;
+        private ToolStripMenuItem crearUsuarioToolStripMenuItem;
     }
 }

@@ -21,6 +21,7 @@ namespace PresentationLayer
 
         private void FrmListaUsuario_Load(object sender, EventArgs e)
         {
+            DgListaUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             CargarUsuario();
         }
 
@@ -38,9 +39,9 @@ namespace PresentationLayer
 
         private void BtnCrearUsuario_Click(object sender, EventArgs e)
         {
-            //FrmCrearUsuario Frm = new FrmCrearUsuario();
-            //Frm.Show();
-            //this.Hide();
+            FrmCrearUsuario Frm = new FrmCrearUsuario();
+            Frm.Show();
+            this.Hide();
         }
 
         private void BtnBuscarUsuario_Click(object sender, EventArgs e)
@@ -76,6 +77,47 @@ namespace PresentationLayer
                 MessageBox.Show("Error: ", ex.Message);
 
             }
+        }
+
+        private void DgListaUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                string id = DgListaUsuario.Rows[e.RowIndex].Cells[1].Value.ToString();
+                FrmEditarUsuario frm = new FrmEditarUsuario();
+                frm._id = id;
+                frm.Show();
+                this.Hide();
+            }
+        }
+
+        private void TxtBuscarUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                Validacion validacion = new Validacion();
+                validacion.ValidarLetraYnumero(e);
+                if ((int)e.KeyChar == (int)Keys.Enter)
+                {
+                    if (TxtBuscarUsuario.Text != "")
+                    {
+                        BuscarUsuario();
+                    }
+                    else
+                    {
+                        CargarUsuario();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: ", ex.Message);
+            }
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

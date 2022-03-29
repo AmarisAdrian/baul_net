@@ -44,5 +44,24 @@ namespace PresentationLayer
             crearcliente.MdiParent = this;
             crearcliente.Show();
         }
+
+        private void listaUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListaUsuario listausuario = new FrmListaUsuario();
+            listausuario.MdiParent = this;
+            listausuario.Show();
+        }
+
+        private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCrearUsuario crearusuario = new FrmCrearUsuario();
+            crearusuario.MdiParent= this;
+            crearusuario.Show();
+        }
+
+        private void FrmContainer_Load(object sender, EventArgs e)
+        {
+            Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.LightSteelBlue;
+        }
     }
 }

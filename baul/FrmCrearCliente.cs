@@ -77,10 +77,5 @@ namespace baul
             frm.Show();
             this.Close();
         }
-
-        private void FrmCrearCliente_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

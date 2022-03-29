@@ -245,5 +245,35 @@ namespace BusinessLayer
                 DgDatos.Rows.Remove(item);
             }
         }
+        public string EncriptarPassword(TextBox password)
+        {
+            string result = string.Empty;
+            try
+            {
+                byte[] encryted = Encoding.Unicode.GetBytes(password.Text);
+                result = Convert.ToBase64String(encryted);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        public string DesencriptarPassword(TextBox password)
+        {
+            string result = string.Empty;
+            try
+            {
+                byte[] decryted = Convert.FromBase64String(password.Text);
+                result = Encoding.Unicode.GetString(decryted);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
     }
 }

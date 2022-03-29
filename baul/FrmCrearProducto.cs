@@ -108,6 +108,11 @@ namespace PresentationLayer
             }
         }
 
-
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            FrmListaProducto frm = new FrmListaProducto();
+            frm.Show();
+            this.Close();
+        }
     }
 }

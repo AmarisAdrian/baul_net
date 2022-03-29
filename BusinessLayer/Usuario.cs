@@ -11,12 +11,15 @@ namespace BusinessLayer
 {
     public class Usuario
     {
+        Validacion validacion = new Validacion();
         public string _Id { get; set; }
         public string _Documento { get; set; }
         public string _Nombre { get; set; }
         public string _Apellido { get; set; }
         public string _Telefono { get; set; }
         public string _Email { get; set; }
+        public string _IdTipoUsuario { get; set; }
+        public string _IdEstadoUsuario { get; set; }
         public string _Mensaje { get; set; }
         public int _CodigoError { get; set; }
         DataBase bd = new DataBase();
@@ -26,15 +29,19 @@ namespace BusinessLayer
             bool Guardar = false;
             try
             {
+                string pass = validacion.EncriptarPassword(TxtNumeroDocumento);
+
                 bd.Connect();
-                bd.CreateCommand("INSERT INTO USUARIO (DOCUMENTO, NOMBRE, APELLIDO, TELEFONO, EMAIL, ID_TIPO_USUARIO, ID_ESTADO_USUARIO) VALUES (@DOCUMENTO, @NOMBRE, @APELLIDO, @TELEFONO, @EMAIL, @ID_TIPO_USUARIO, @ID_ESTADO_USUARIO)", System.Data.CommandType.Text);
+                bd.CreateCommand("INSERT INTO USUARIO (DOCUMENTO, PASSWORD, NOMBRE, APELLIDO, TELEFONO, EMAIL, ID_TIPO_USUARIO, ID_ESTADO_USUARIO) VALUES (@DOCUMENTO, @PASSWORD, @NOMBRE, @APELLIDO, @TELEFONO, @EMAIL, @ID_TIPO_USUARIO, @ID_ESTADO_USUARIO)", System.Data.CommandType.Text);
                 bd.AddParameters("@DOCUMENTO", SqlDbType.BigInt, TxtNumeroDocumento.Text);
+                bd.AddParameters("@PASSWORD", SqlDbType.NVarChar, pass);
                 bd.AddParameters("@NOMBRE", SqlDbType.VarChar, TxtNombre.Text);
                 bd.AddParameters("@APELLIDO", SqlDbType.VarChar, TxtApellido.Text);
                 bd.AddParameters("@TELEFONO", SqlDbType.BigInt, TxtTelefono.Text);
                 bd.AddParameters("@EMAIL", SqlDbType.VarChar, TxtEmail.Text);
                 bd.AddParameters("@ID_TIPO_USUARIO", SqlDbType.Int, CmbTipoUsuario.SelectedValue);
                 bd.AddParameters("@ID_ESTADO_USUARIO", SqlDbType.Int, CmbEstadoUsuario.SelectedValue);
+
                 int reg = 0;
                 reg = bd.ExecuteCommand();
                 if (reg > 0)
@@ -60,7 +67,7 @@ namespace BusinessLayer
             try
             {
                 bd.Connect();
-                bd.CreateCommand("UPDATE CLIENTE SET [DOCUMENTO]=@DOCUMENTO, [NOMBRE]=@NOMBRE , [APELLIDO]=@APELLIDO , [TELEFONO]=@TELEFONO, [EMAIL]=@EMAIL, [ID_TIPO_USUARIO]=@ID_TIPO_USUARIO, [ID_ESTADO_USUARIO]=@ID_ESTADO_USUARIO WHERE [ID]=@ID", System.Data.CommandType.Text);
+                bd.CreateCommand("UPDATE USUARIO SET [DOCUMENTO]=@DOCUMENTO, [NOMBRE]=@NOMBRE , [APELLIDO]=@APELLIDO , [TELEFONO]=@TELEFONO, [EMAIL]=@EMAIL, [ID_TIPO_USUARIO]=@ID_TIPO_USUARIO, [ID_ESTADO_USUARIO]=@ID_ESTADO_USUARIO WHERE [ID]=@ID", System.Data.CommandType.Text);
                 bd.AddParameters("@ID", SqlDbType.BigInt, id);
                 bd.AddParameters("@DOCUMENTO", SqlDbType.BigInt, TxtNumeroDocumento.Text);
                 bd.AddParameters("@NOMBRE", SqlDbType.VarChar, TxtNombre.Text);
@@ -99,8 +106,41 @@ namespace BusinessLayer
         {
             CargarDataGrid Dg = new CargarDataGrid();
             DgDatos.DataSource = null;
-            Dg.Ready("SELECT * FROM USUARIO WHERE DOCUMENTO LIKE '%" + TxtBuscarUsuario.Text + "%' OR NOMBRE LIKE '%" + TxtBuscarUsuario.Text + "%' OR APELLIDO LIKE '%" + TxtBuscarUsuario.Text + "%' ORDER BY ID DESC");
+            Dg.Ready("buscar_usuario'" + TxtBuscarUsuario.Text + "'");
             Dg.Load(DgDatos);
+        }
+        public bool BuscarUsuario(int id)
+        {
+            bool Consultar = false;
+            try
+            {
+                bd.Connect();
+                bd.CreateCommand("SELECT * FROM USUARIO WHERE ID = '" + id + "';", CommandType.Text);
+                bd.AddParameters("@DOCUMENTO", SqlDbType.BigInt, id);
+                SqlDataReader dr;
+                dr = bd.ExecuteReader();
+                if (dr.Read())
+                {
+                    _Documento = Convert.ToString(dr["DOCUMENTO"]);
+                    _Nombre = Convert.ToString(dr["NOMBRE"]);
+                    _Apellido = Convert.ToString(dr["APELLIDO"]);
+                    _Telefono = Convert.ToString(dr["TELEFONO"]);
+                    _Email = Convert.ToString(dr["EMAIL"]);
+                    _IdTipoUsuario = Convert.ToString(dr["ID_TIPO_USUARIO"]);
+                    _IdEstadoUsuario = Convert.ToString(dr["ID_ESTADO_USUARIO"]);
+                    Consultar = true;
+                }
+                else
+                {
+                    Consultar = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { bd.CleanParameters(); bd.Disconnect(); }
+            return Consultar;
         }
         public bool CambiarEstado(bool estado, string id)
         {
