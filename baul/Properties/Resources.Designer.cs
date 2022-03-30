@@ -183,9 +183,29 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap motivo {
+            get {
+                object obj = ResourceManager.GetObject("motivo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pencil_table {
             get {
                 object obj = ResourceManager.GetObject("pencil_table", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap talla {
+            get {
+                object obj = ResourceManager.GetObject("talla", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

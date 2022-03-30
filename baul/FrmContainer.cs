@@ -63,5 +63,19 @@ namespace PresentationLayer
         {
             Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.LightSteelBlue;
         }
+
+        private void motivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMotivo motivo = new FrmMotivo();
+            motivo.MdiParent = this;
+            motivo.Show();
+        }
+
+        private void tallaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTalla talla = new FrmTalla();
+            talla.MdiParent = this;
+            talla.Show();
+        }
     }
 }

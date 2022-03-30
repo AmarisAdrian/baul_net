@@ -38,6 +38,9 @@
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.motivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tallaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +49,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.productosToolStripMenuItem,
             this.clientesToolStripMenuItem,
-            this.usuariosToolStripMenuItem});
+            this.usuariosToolStripMenuItem,
+            this.configuraciónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -66,7 +70,7 @@
             // 
             this.listadoProductosToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.pencil_table;
             this.listadoProductosToolStripMenuItem.Name = "listadoProductosToolStripMenuItem";
-            this.listadoProductosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listadoProductosToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.listadoProductosToolStripMenuItem.Text = "&Lista productos";
             this.listadoProductosToolStripMenuItem.Click += new System.EventHandler(this.listadoProductosToolStripMenuItem_Click);
             // 
@@ -74,7 +78,7 @@
             // 
             this.crearProductosToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.agregar_producto;
             this.crearProductosToolStripMenuItem.Name = "crearProductosToolStripMenuItem";
-            this.crearProductosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearProductosToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.crearProductosToolStripMenuItem.Text = "&Crear productos";
             this.crearProductosToolStripMenuItem.Click += new System.EventHandler(this.crearProductosToolStripMenuItem_Click);
             // 
@@ -91,7 +95,7 @@
             // 
             this.listaClientesToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.client_list;
             this.listaClientesToolStripMenuItem.Name = "listaClientesToolStripMenuItem";
-            this.listaClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listaClientesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.listaClientesToolStripMenuItem.Text = "&Lista Clientes";
             this.listaClientesToolStripMenuItem.Click += new System.EventHandler(this.listaClientesToolStripMenuItem_Click);
             // 
@@ -99,7 +103,7 @@
             // 
             this.crearClientesToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.add_user_client;
             this.crearClientesToolStripMenuItem.Name = "crearClientesToolStripMenuItem";
-            this.crearClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearClientesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.crearClientesToolStripMenuItem.Text = "&Crear Clientes";
             this.crearClientesToolStripMenuItem.Click += new System.EventHandler(this.crearClientesToolStripMenuItem_Click);
             // 
@@ -116,7 +120,7 @@
             // 
             this.listaUsuarioToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.user_list;
             this.listaUsuarioToolStripMenuItem.Name = "listaUsuarioToolStripMenuItem";
-            this.listaUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listaUsuarioToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.listaUsuarioToolStripMenuItem.Text = "&Lista Usuarios";
             this.listaUsuarioToolStripMenuItem.Click += new System.EventHandler(this.listaUsuarioToolStripMenuItem_Click);
             // 
@@ -124,9 +128,34 @@
             // 
             this.crearUsuarioToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.add_user_client;
             this.crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
-            this.crearUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearUsuarioToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.crearUsuarioToolStripMenuItem.Text = "&Crear Usuarios";
             this.crearUsuarioToolStripMenuItem.Click += new System.EventHandler(this.crearUsuarioToolStripMenuItem_Click);
+            // 
+            // configuraciónToolStripMenuItem
+            // 
+            this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.motivoToolStripMenuItem,
+            this.tallaToolStripMenuItem});
+            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.configuraciónToolStripMenuItem.Text = "Configuración";
+            // 
+            // motivoToolStripMenuItem
+            // 
+            this.motivoToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.motivo;
+            this.motivoToolStripMenuItem.Name = "motivoToolStripMenuItem";
+            this.motivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.motivoToolStripMenuItem.Text = "&Motivo";
+            this.motivoToolStripMenuItem.Click += new System.EventHandler(this.motivoToolStripMenuItem_Click);
+            // 
+            // tallaToolStripMenuItem
+            // 
+            this.tallaToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.talla;
+            this.tallaToolStripMenuItem.Name = "tallaToolStripMenuItem";
+            this.tallaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tallaToolStripMenuItem.Text = "&Talla";
+            this.tallaToolStripMenuItem.Click += new System.EventHandler(this.tallaToolStripMenuItem_Click);
             // 
             // FrmContainer
             // 
@@ -160,5 +189,8 @@
         private ToolStripMenuItem usuariosToolStripMenuItem;
         private ToolStripMenuItem listaUsuarioToolStripMenuItem;
         private ToolStripMenuItem crearUsuarioToolStripMenuItem;
+        private ToolStripMenuItem configuraciónToolStripMenuItem;
+        private ToolStripMenuItem motivoToolStripMenuItem;
+        private ToolStripMenuItem tallaToolStripMenuItem;
     }
 }
