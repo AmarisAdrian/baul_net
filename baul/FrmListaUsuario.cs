@@ -21,7 +21,6 @@ namespace PresentationLayer
 
         private void FrmListaUsuario_Load(object sender, EventArgs e)
         {
-            DgListaUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             CargarUsuario();
         }
 

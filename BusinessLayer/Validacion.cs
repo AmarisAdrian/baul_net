@@ -259,7 +259,6 @@ namespace BusinessLayer
             }
             return result;
         }
-
         public string DesencriptarPassword(TextBox password)
         {
             string result = string.Empty;
@@ -273,6 +272,28 @@ namespace BusinessLayer
                 throw ex;
             }
             return result;
+        }
+        public double CalcularDescuento(TextBox TxtValorVenta, TextBox TxtDescuento)
+        {
+            try
+            {
+                double Descuento, ValorVenta, ValorDescuento, Op;
+                Descuento = Convert.ToDouble(TxtDescuento.Text);
+                ValorVenta = Convert.ToDouble(TxtValorVenta.Text);
+
+                Op = Descuento / 100;
+
+                ValorDescuento = Op * ValorVenta;
+                ValorDescuento = ValorVenta - ValorDescuento;
+
+                return ValorDescuento;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
     }

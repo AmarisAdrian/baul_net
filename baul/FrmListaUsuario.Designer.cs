@@ -108,6 +108,7 @@
             this.DgListaUsuario.AllowUserToAddRows = false;
             this.DgListaUsuario.AllowUserToDeleteRows = false;
             this.DgListaUsuario.AllowUserToOrderColumns = true;
+            this.DgListaUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DgListaUsuario.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
@@ -148,6 +149,7 @@
             this.Accion.Text = "Editar";
             this.Accion.ToolTipText = "Editar cliente";
             this.Accion.UseColumnTextForButtonValue = true;
+            this.Accion.Width = 66;
             // 
             // BtnCrearUsuario
             // 
